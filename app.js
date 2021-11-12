@@ -10,8 +10,6 @@ function createNewUser() {
         address: address
     }).then(function (response) {
             console.log(response);
-
-            document.getElementById("inputName").value = ""
             getAllUser()
             document.getElementById("alert").innerHTML =
                 `<div class="alert alert-success" role="alert">
@@ -50,7 +48,7 @@ function getAllUsers() {
                         <td>
                         <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a class="delete" onclick="deleteUser()" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
                     </tr>`
             })
