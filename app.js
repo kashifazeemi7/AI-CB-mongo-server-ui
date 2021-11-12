@@ -21,6 +21,23 @@ function createNewUser() {
                 document.getElementById("alert").innerHTML = ""
             }, 3000);
         })
+
+        document.getElementById("userdata").innerHTML +=
+        `<tr>   
+            <th scope="row">${eachUser._id}</th>
+            <td>${name}</td>
+            <td>${email}</td>
+            <td>${address}</td>
+            <td>
+            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+        </td>
+        </tr>`
+        
+        document.getElementById("inputName").value = "";
+        document.getElementById("inputEmail").value = "";
+        document.getElementById("inputAddress").value = "";
 }
 
 
@@ -43,6 +60,7 @@ function getAllUsers() {
                         <td>${eachUser.email}</td>
                         <td>${eachUser.address}</td>
                         <td>
+                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
