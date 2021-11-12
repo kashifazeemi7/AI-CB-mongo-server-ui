@@ -4,7 +4,7 @@ function createNewUser() {
     let email = document.getElementById("inputEmail").value
     let address = document.getElementById("inputAddress").value
 
-    axios.post('http://localhost:3000/user/user', {
+    axios.post('https://server-crudapp-mongodb.herokuapp.com/user', {
         name: name,
         email: email,
         address: address
@@ -32,7 +32,7 @@ function createNewUser() {
 // Displaying All Users on the table
 function getAllUsers() {
 
-    axios.get('http://localhost:3000/user/users')
+    axios.get('https://server-crudapp-mongodb.herokuapp.com/users')
         .then(function (response) {
             console.log(response);
 
@@ -61,7 +61,7 @@ function getAllUsers() {
 
 function deleteUser(_id) {
 
-    axios.delete(`http://localhost:3000/user/${_id}`)
+    axios.delete(`https://server-crudapp-mongodb.herokuapp.com/${_id}`)
         .then(function (response) {
             console.log(response);
 
