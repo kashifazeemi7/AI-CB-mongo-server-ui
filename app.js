@@ -137,8 +137,6 @@ function updateUser(_id) {
 
         })
 
-
-        getAllUsers();
-
-
 }
+
+getAllUsers();
