@@ -17,9 +17,9 @@ function getAllUsers() {
                         <td class="email-${eachUser._id}">${eachUser.email}</td>
                         <td class="address-${eachUser._id}">${eachUser.address}</td>
                         <td>
-                        <a class="add" onclick="updateUser(${_id})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="add" onclick="updateUser(${eachUser._id})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" onclick="deleteUser(${_id})" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a class="delete" onclick="deleteUser(${eachUser._id})" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
                     </tr>`
             })
