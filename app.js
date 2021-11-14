@@ -10,7 +10,7 @@ function createNewUser() {
         address: address
     }).then(function (response) {
             console.log(response);
-            getAllUser()
+            getAllUsers()
             document.getElementById("alert").innerHTML =
                 `<div class="alert alert-success" role="alert">
                    Well done! ${name} is created!
@@ -42,9 +42,9 @@ function getAllUsers() {
                 document.getElementById("userdata").innerHTML +=
                     `<tr>   
                         <th scope="row">${eachUser._id}</th>
-                        <td>${eachUser.name}</td>
-                        <td>${eachUser.email}</td>
-                        <td>${eachUser.address}</td>
+                        <td class="name-${_id}">${eachUser.name}</td>
+                        <td class="email-${_id}">${eachUser.email}</td>
+                        <td class="address-${_id}">${eachUser.address}</td>
                         <td>
                         <a class="add" onclick="updateUser(${_id})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -113,19 +113,16 @@ $(document).on("click", ".delete", function(){
     $(".add-new").removeAttr("disabled");
 });
 
-
-getAllUsers();
-
 function updateUser(_id) {
-    const name = document.getElementById(`${_id}-name`).value
-    const email = document.getElementById(`${_id}-email`).value
-    const address = document.getElementById(`${_id}-address`).value
+    const name = document.getElementById(`name-${_id}`).value
+    const email = document.getElementById(`email-${_id}`).value
+    const address = document.getElementById(`address-${_id}`).value
 
     axios.put(`https://server-crudapp-mongodb.herokuapp.com/${_id}`, { name, email, address })
         .then(function (response) {
             console.log(response);
 
-            getAllUser();
+            getAllUsers();
 
             document.getElementById("alert").innerHTML =
                 `<div class="alert alert-success" role="alert">
@@ -139,6 +136,7 @@ function updateUser(_id) {
         })
 
 
+        getAllUsers();
 
 
 }
