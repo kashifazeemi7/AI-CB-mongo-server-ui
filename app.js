@@ -42,9 +42,9 @@ function getAllUsers() {
                 document.getElementById("userdata").innerHTML +=
                     `<tr>   
                         <th scope="row">${eachUser._id}</th>
-                        <td class="name-${_id}">${eachUser.name}</td>
-                        <td class="email-${_id}">${eachUser.email}</td>
-                        <td class="address-${_id}">${eachUser.address}</td>
+                        <td class="name-${eachUser._id}">${eachUser.name}</td>
+                        <td class="email-${eachUser._id}">${eachUser.email}</td>
+                        <td class="address-${eachUser._id}">${eachUser.address}</td>
                         <td>
                         <a class="add" onclick="updateUser(${_id})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
