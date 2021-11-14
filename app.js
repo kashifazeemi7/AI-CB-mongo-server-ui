@@ -55,26 +55,25 @@ function createNewUser() {
         document.getElementById("inputAddress").value = "";
 }
 
-
+    
 
 //Deleting a specific user from DB
 
-function deleteUser(_id) {
+function deleteUser(id) {
 
-    axios.delete(`https://server-crudapp-mongodb.herokuapp.com/user/${_id}`)
-        .then(function (response) {
+    axios.delete(`https://server-crudapp-mongodb.herokuapp.com/user/${id}`).then(function (response) {
             console.log(response);
 
             getAllUsers();
 
-            document.getElementById("alert").innerHTML =
-                `<div class="alert alert-danger" role="alert">
-                    User Deleted Success!
-                </div>`
+            // document.getElementById("alert").innerHTML =
+            //     `<div class="alert alert-danger" role="alert">
+            //         User Deleted Success!
+            //     </div>`
 
-            setTimeout(() => {
-                document.getElementById("alert").innerHTML = ""
-            }, 3000);
+            // setTimeout(() => {
+            //     document.getElementById("alert").innerHTML = ""
+            // }, 3000);
 
         })
 }
