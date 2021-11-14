@@ -61,7 +61,7 @@ function createNewUser() {
 
 function deleteUser(_id) {
 
-    axios.delete(`https://server-crudapp-mongodb.herokuapp.com/${_id}`)
+    axios.delete(`https://server-crudapp-mongodb.herokuapp.com/user/${_id}`)
         .then(function (response) {
             console.log(response);
 
