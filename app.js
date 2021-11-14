@@ -1,32 +1,3 @@
-//Create a new user 
-function createNewUser() {
-    let name = document.getElementById("inputName").value
-    let email = document.getElementById("inputEmail").value
-    let address = document.getElementById("inputAddress").value
-
-    axios.post('https://server-crudapp-mongodb.herokuapp.com/user', {
-        name: name,
-        email: email,
-        address: address
-    }).then(function (response) {
-            console.log(response);
-            getAllUsers()
-            document.getElementById("alert").innerHTML =
-                `<div class="alert alert-success" role="alert">
-                   Well done! ${name} is created!
-                </div>`
-            setTimeout(() => {
-                document.getElementById("alert").innerHTML = ""
-            }, 3000);
-        })
-
-    
-        document.getElementById("inputName").value = "";
-        document.getElementById("inputEmail").value = "";
-        document.getElementById("inputAddress").value = "";
-}
-
-
 // Displaying All Users on the table
 function getAllUsers() {
 
@@ -54,6 +25,37 @@ function getAllUsers() {
             })
         })
 }
+
+
+//Create a new user 
+function createNewUser() {
+    let name = document.getElementById("inputName").value
+    let email = document.getElementById("inputEmail").value
+    let address = document.getElementById("inputAddress").value
+
+    axios.post('https://server-crudapp-mongodb.herokuapp.com/user', {
+        name: name,
+        email: email,
+        address: address
+    }).then(function (response) {
+            console.log(response);
+            getAllUsers()
+            document.getElementById("alert").innerHTML =
+                `<div class="alert alert-success" role="alert">
+                   Well done! ${name} is created!
+                </div>`
+            setTimeout(() => {
+                document.getElementById("alert").innerHTML = ""
+            }, 1500);
+        })
+
+    
+        document.getElementById("inputName").value = "";
+        document.getElementById("inputEmail").value = "";
+        document.getElementById("inputAddress").value = "";
+}
+
+
 
 //Deleting a specific user from DB
 
