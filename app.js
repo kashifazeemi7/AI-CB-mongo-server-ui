@@ -46,9 +46,9 @@ function getAllUsers() {
                         <td>${eachUser.email}</td>
                         <td>${eachUser.address}</td>
                         <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="add" onclick="updateUser(${_id})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" onclick="deleteUser()" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a class="delete" onclick="deleteUser(${_id})" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
                     </tr>`
             })
@@ -63,7 +63,7 @@ function deleteUser(_id) {
         .then(function (response) {
             console.log(response);
 
-            getAllUser();
+            getAllUsers();
 
             document.getElementById("alert").innerHTML =
                 `<div class="alert alert-danger" role="alert">
@@ -115,3 +115,30 @@ $(document).on("click", ".delete", function(){
 
 
 getAllUsers();
+
+function updateUser(_id) {
+    const name = document.getElementById(`${_id}-name`).value
+    const email = document.getElementById(`${_id}-email`).value
+    const address = document.getElementById(`${_id}-address`).value
+
+    axios.put(`https://server-crudapp-mongodb.herokuapp.com/${_id}`, { name, email, address })
+        .then(function (response) {
+            console.log(response);
+
+            getAllUser();
+
+            document.getElementById("alert").innerHTML =
+                `<div class="alert alert-success" role="alert">
+                    User Updated Success!
+                </div>`
+
+            setTimeout(() => {
+                document.getElementById("alert").innerHTML = ""
+            }, 3000);
+
+        })
+
+
+
+
+}
