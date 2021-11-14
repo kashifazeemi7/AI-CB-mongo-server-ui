@@ -17,9 +17,9 @@ function getAllUsers() {
                         <td class="email-${eachUser._id}">${eachUser.email}</td>
                         <td class="address-${eachUser._id}">${eachUser.address}</td>
                         <td>
-                        <a class="add" onclick="updateUser(${eachUser._id})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="add" onclick="updateUser(${parseInt(eachUser._id)})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" onclick="deleteUser(${eachUser._id})" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a class="delete" onclick="deleteUser(${parseInt(eachUser._id)})" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
                     </tr>`
             })
@@ -55,13 +55,13 @@ function createNewUser() {
         document.getElementById("inputAddress").value = "";
 }
 
-    
+
 
 //Deleting a specific user from DB
 
-function deleteUser(id) {
-
-    axios.delete(`https://server-crudapp-mongodb.herokuapp.com/user/${id}`).then(function (response) {
+function deleteUser(_id) {
+console.log(id)
+    axios.delete(`https://server-crudapp-mongodb.herokuapp.com/user/${_id}`).then(function (response) {
             console.log(response);
 
             getAllUsers();
