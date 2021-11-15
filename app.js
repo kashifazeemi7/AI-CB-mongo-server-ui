@@ -119,7 +119,7 @@ function updateUser(_id) {
     let email = document.getElementById(`email-${_id}`).innerText
     let address = document.getElementById(`address-${_id}`).innerText
 
-    axios.put(`https://server-crudapp-mongodb.herokuapp.com/${_id}`, { name, email, address })
+    axios.put(`https://server-crudapp-mongodb.herokuapp.com/user/${_id}`, { name, email, address })
         .then(function (response) {
             console.log(response);
 
