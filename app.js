@@ -17,9 +17,9 @@ function getAllUsers() {
                         <td class="email-${eachUser._id}">${eachUser.email}</td>
                         <td class="address-${eachUser._id}">${eachUser.address}</td>
                         <td>
-          <a class="add" onclick="updateUser(${eachUser._id})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+          <a class="add" onclick="updateUser(${parseInt(eachUser._id)})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" onclick="deleteUser(${eachUser._id})" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a class="delete" onclick="deleteUser(${parseInt(eachUser._id)})" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
                     </tr>`
             })
@@ -66,14 +66,14 @@ console.log(_id)
 
             getAllUsers();
 
-            // document.getElementById("alert").innerHTML =
-            //     `<div class="alert alert-danger" role="alert">
-            //         User Deleted Success!
-            //     </div>`
+            document.getElementById("alert").innerHTML =
+                `<div class="alert alert-danger" role="alert">
+                    User Deleted Success!
+                </div>`
 
-            // setTimeout(() => {
-            //     document.getElementById("alert").innerHTML = ""
-            // }, 3000);
+            setTimeout(() => {
+                document.getElementById("alert").innerHTML = ""
+            }, 1500);
 
         })
 }
@@ -132,7 +132,7 @@ function updateUser(_id) {
 
             setTimeout(() => {
                 document.getElementById("alert").innerHTML = ""
-            }, 3000);
+            }, 1500);
 
         })
 
