@@ -115,9 +115,9 @@ $(document).on("click", ".delete", function(){
 });
 
 function updateUser(_id) {
-    let name = document.getElementById(`name-${_id}`).innerText
-    let email = document.getElementById(`email-${_id}`).innerText
-    let address = document.getElementById(`address-${_id}`).innerText
+    let name = document.getElementById(`name-${_id}`).value
+    let email = document.getElementById(`email-${_id}`).value
+    let address = document.getElementById(`address-${_id}`).value
 
     axios.put(`https://server-crudapp-mongodb.herokuapp.com/user/${_id}`, { name, email, address })
         .then(function (response) {
