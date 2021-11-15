@@ -13,13 +13,13 @@ function getAllUsers() {
                 document.getElementById("userdata").innerHTML +=
                     `<tr>   
                         <th scope="row">${eachUser._id}</th>
-                        <td class="name-${eachUser._id}">${eachUser.name}</td>
-                        <td class="email-${eachUser._id}">${eachUser.email}</td>
-                        <td class="address-${eachUser._id}">${eachUser.address}</td>
+                        <td id="name-${eachUser._id}">${eachUser.name}</td>
+                        <td id="email-${eachUser._id}">${eachUser.email}</td>
+                        <td id="address-${eachUser._id}">${eachUser.address}</td>
                         <td>
-          <a class="add" onclick="updateUser(${parseInt(eachUser._id)})" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+          <a class="add" onclick="updateUser('${(eachUser._id)}')" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                         <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" onclick="deleteUser(${parseInt(eachUser._id)})" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a class="delete" onclick="deleteUser('${(eachUser._id)}')" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
                     </tr>`
             })
@@ -115,9 +115,9 @@ $(document).on("click", ".delete", function(){
 });
 
 function updateUser(_id) {
-    const name = document.getElementById(`name-${_id}`).value
-    const email = document.getElementById(`email-${_id}`).value
-    const address = document.getElementById(`address-${_id}`).value
+    let name = document.getElementById(`name-${_id}`).innerText
+    let email = document.getElementById(`email-${_id}`).innerText
+    let address = document.getElementById(`address-${_id}`).innerText
 
     axios.put(`https://server-crudapp-mongodb.herokuapp.com/${_id}`, { name, email, address })
         .then(function (response) {
